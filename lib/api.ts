@@ -4,6 +4,12 @@ import axios from "axios";
 const API_URL = "https://notehub-public.goit.study/api/notes";
 const NOTEHUB_TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
+export interface FetchNotesData{
+page: number,
+search: string,
+tag?:NoteTag
+}
+
 export interface NotesResponse {
   notes: Note[];
   totalPages: number;
@@ -15,14 +21,14 @@ export interface NewNoteData {
   tag: NoteTag;
 }
 
-export async function fetchNotes(
-  page?: number,
-  search?: string
-): Promise<NotesResponse> {
+export async function fetchNotes(  {
+  page, search, tag
+}:FetchNotesData): Promise<NotesResponse> {
   const response = await axios.get<NotesResponse>(API_URL, {
     params: {
       page,
       search,
+      tag
     },
     headers: {
       Authorization: `Bearer ${NOTEHUB_TOKEN}`,
