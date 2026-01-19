@@ -4,7 +4,6 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import { fetchNoteById } from "../../../../lib/api";
-import NoteDetailsClient from "../../../notes/[id]/NoteDetails.client";
 import NotePreviewClient from "./NotePreview.client";
 
 type Props = {
