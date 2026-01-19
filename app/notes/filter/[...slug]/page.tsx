@@ -11,7 +11,7 @@ type Props = {
   params: Promise<{ slug: string[] }>;
 };
 
-const NotesByCategory = async ({ params }: Props) => {
+const NotesPage = async ({ params }: Props) => {
   const { slug } = await params;
   const targetTag = slug[0] === "all" ? undefined : (slug[0] as NoteTag);
   const queryClient = new QueryClient();
@@ -31,4 +31,4 @@ const NotesByCategory = async ({ params }: Props) => {
   );
 };
 
-export default NotesByCategory;
+export default NotesPage;

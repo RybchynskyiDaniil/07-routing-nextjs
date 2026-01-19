@@ -1,6 +1,8 @@
+"use client";
 import { useEffect } from "react";
 import css from "./Modal.module.css";
 import { createPortal } from "react-dom";
+import { useRouter } from "next/navigation";
 
 interface ModalProps {
   onClose: () => void;
@@ -37,9 +39,14 @@ function Modal({ onClose, children }: ModalProps) {
       aria-modal="true"
       onClick={handleBackdropClick}
     >
-      <div className={css.modal}>{children}</div>
+      <div className={css.modal}>
+        <button className={css.button} onClick={onClose}>
+          Close
+        </button>
+        {children}
+      </div>
     </div>,
-    document.body
+    document.body,
   );
 }
 
