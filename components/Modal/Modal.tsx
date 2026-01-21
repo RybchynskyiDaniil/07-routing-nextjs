@@ -40,9 +40,9 @@ function Modal({ onClose, children }: ModalProps) {
       onClick={handleBackdropClick}
     >
       <div className={css.modal}>
-        <button className={css.button} onClick={onClose}>
+        {/* <button className={css.button} onClick={onClose}>
           Close
-        </button>
+        </button> */}
         {children}
       </div>
     </div>,

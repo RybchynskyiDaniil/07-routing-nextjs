@@ -7,7 +7,7 @@ import { fetchNoteById } from "../../../../lib/api";
 import NotePreviewClient from "./NotePreview.client";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 const NotePreview = async ({ params }: Props) => {
